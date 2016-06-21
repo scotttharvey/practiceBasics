@@ -4,24 +4,21 @@
 
 
 function doThrice(action) {
-	action();
-	action();
-	action();
+	return action + action + action;
 }
 
 function greet() {
-	console.log("Hello, world!");
+	return "Hello, world!";
 }
+console.log(doThrice(greet()));
 
-
-//Code here
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-//Below is a function that returns the definition of a function. 
-//On Line A, assign the invocation of sayHello to a new variable called sayHelloClosure. 
+//Below is a function that returns the definition of a function.
+//On Line A, assign the invocation of sayHello to a new variable called sayHelloClosure.
 //Uncomment the console.log and notice that it logs the function definition of say.
 //On Line B, invoke that new variable. Check your console for 'Hello again, world!'.
 //Because of the closure, we were able to 'look inside' the scope of the sayHello function.
@@ -34,10 +31,11 @@ function sayHello() {
 	return say;
 }
 
-//Line A
+var sayHelloClosure = sayHello()
 
-//console.log(sayHelloClosure);
-//Line B
+console.log(sayHelloClosure);
+
+sayHelloClosure();
 
 
 
@@ -48,7 +46,7 @@ function sayHello() {
 //NO TESTS
 //You found a mysterious piece of code that calculates and prints theAnswer. What will it print and why?
 
-	//Answer
+	//Answer = 42
 
 
 var universe = 1;  //global variable
@@ -63,8 +61,8 @@ function doubleUniverse(){
 }
 
 //double universe 4 times
-for(var life=0; life<4; life++){  
-    doubleUniverse(); 
+for(var life=0; life<4; life++){
+    doubleUniverse();
 }
 
 var everything = getEverything();
@@ -83,25 +81,22 @@ console.log(theAnswer);
 //On line C, return the function definition of checkNumber.
 //On line D, assign the invocation of numberGenerator to a new variable called number.
 //On line E, invoke number. What does it return? Why?
-
+// answer = 2, bcause of num++, but if that wasnt there it would equal 1, because all we are doing is taking the value and assigning it to new vars
 
 function numberGenerator() {
-  //Line A
-
-  //Line B
-
+	var num = 1;
+	function checkNumber(){
+		console.log(num);
+	}
 
   num++;
-  //Line C
 
-
+	return checkNumber();
 }
-
-//Line D
-
-
-//Line E
-
+  var number = function(){
+  	numberGenerator()
+}
+number()
 
 
 
@@ -110,7 +105,7 @@ function numberGenerator() {
 
 
 //Step 1: Write a function called helloGoodbye. Inside of this function, declare two local variables: sayHi and sayBye. Examples below.
-//        var sayHi = "Hello, "; 
+//        var sayHi = "Hello, ";
 //        var sayBye = "Goodbye, ";
 
 //Step 2: Below these variables, declare two functions. Both should take a name parameter. One should be called hello and one should be called goodbye.
@@ -118,9 +113,9 @@ function numberGenerator() {
 
 //Step 3: Following the module pattern, return an object containing these two function definitions so we can access them from outside helloGoodbye's scope.
 
-//Step 4: Now invoke helloGoodbye and save it to a new variable called greeting. 
-//        Then, invoke the hello method, passing in your name and save it to a new variable called myHello. 
-//        Invoke the goodbye method, passing in your name and save it to a new variable called myGoodbye. 
+//Step 4: Now invoke helloGoodbye and save it to a new variable called greeting.
+//        Then, invoke the hello method, passing in your name and save it to a new variable called myHello.
+//        Invoke the goodbye method, passing in your name and save it to a new variable called myGoodbye.
 
 
 
@@ -172,7 +167,7 @@ passwordGame.guessPassword('xh38sk'); // should return true
 //        Therefore, every time i is incremented, it updates scope. Any function trying to access i will return 5,
 //        because i is equal to 5 when the for loop exits.
 
-//Step 2: Get scopeFunc to print 1, then 2, then 3, etc. You can do this by giving each function inside of the for loop its own scope. 
+//Step 2: Get scopeFunc to print 1, then 2, then 3, etc. You can do this by giving each function inside of the for loop its own scope.
 //		  HINT: Wrap it in a function that invokes immediately. You will need to pass i in as an argument.
 
 
