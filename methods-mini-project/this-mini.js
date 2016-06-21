@@ -21,7 +21,7 @@ joe.setAge(20);
 
 
 //Create a function called returnName that will return any user object's name.
-//Hint: use the this keyword 
+//Hint: use the this keyword
 
 function returnName() {
 	return this.name;
@@ -64,7 +64,7 @@ function Pet(name, species, color) {
 	}
 }
 
-//Using the Pet constructor, create three new Pet objects passing in the species, breed and color of your favorite pets (or make some up). 
+//Using the Pet constructor, create three new Pet objects passing in the species, breed and color of your favorite pets (or make some up).
 //Store them in variables.
 
 var pet1 = new Pet("name1","species1","color1");
@@ -79,16 +79,16 @@ pet3.log()
 
 
 //Create a function called shopping. Put the cart array (found below) inside of the function.
-//var cart = ['carrots','almonds','milk','honey'];
+// var cart = ['carrots','almonds','milk','honey'];
 
-function shopping() {
+function shopping(cart) {
 
 	var cart = ['carrots','almonds','milk','honey'];
 
 }
 
 //Now uncomment the console.log below and notice that cart is not defined.
-//console.log(cart)
+console.log(cart)
 
 
 //This is because cart is essentially a private variable within the shopping function's scope and is not accessible outside of it.
@@ -100,20 +100,21 @@ function shopping() {
 //In your shopping function, return two methods. One will be called getCart and the other will be called addToCart.
 //getCart will return the cart array and addToCart will take in an item as a parameter and add it to the cart array.
 
-function shopping() {
+var shopping = (function() {
 
 	var cart = ['carrots','almonds','milk','honey'];
-
+	var getCart = function() {
+		return cart;
+	};
+	var addToCart = function(item) {
+		cart.push(item);
+	};
 	return {
-		getCart: function() {
-			return cart;
-		},
-		addToCart: function(item) {
-			cart.push(item);
-		}
-	}
+		getCart: getCart,
+		addToCart: addToCart
+	};
 
-}
+})();
 
 //Invoke the getCart method and console.log the response.
 //Invoke the addToCart method, passing in an item as an argument.
