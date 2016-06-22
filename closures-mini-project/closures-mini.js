@@ -189,8 +189,9 @@ function scopeFunc() {
 
 	for (var i = 0; i < 5; i++) {
 		result[i] = function() {
-			console.log(i);
+			return i;
 		}
+		console.log(i);
 	}
 
 	result[0]();
@@ -210,14 +211,17 @@ scopeFunc();
 //QUESTIONS - feel free to use google to research
 
 //1) In your own words, what is execution context? What is the call stack?
-	//Answer
+	//Answer =
+	//context is object based. Using the "this" keyword. vars that you use to use functions. When you use a function and start using the methods and properties with dot notation
 
 
 
 //2) What is the scope chain?
-	//Answer
+	//Answer =
+	//scope is function based. Pertains to the variable access when invoked and is unique.
 
 
 
 //3) What are some reasons to use closures in JavaScript?
-	//Answer
+	//Answer =
+	//to access functions outside of its own scope. 
