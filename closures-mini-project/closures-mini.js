@@ -105,11 +105,11 @@ number()
 
 
 //Step 1: Write a function called helloGoodbye. Inside of this function, declare two local variables: sayHi and sayBye. Examples below.
-//        var sayHi = "Hello, ";
-//        var sayBye = "Goodbye, ";
 
 //Step 2: Below these variables, declare two functions. Both should take a name parameter. One should be called hello and one should be called goodbye.
 //		  The hello function should return sayHi + name and the goodbye function should return sayBye + name
+
+
 
 //Step 3: Following the module pattern, return an object containing these two function definitions so we can access them from outside helloGoodbye's scope.
 
@@ -119,17 +119,24 @@ number()
 
 
 
-
-
-
 //Code here
+function helloGoodbye(){
+	var sayHi = "Hello, ";
+	var sayBye = "Goodbye, ";
+	var say = {
+	 hello: function(name){
+		return sayHi + name
+	},
+	 goodbye: function(name){
+		return sayBye + name
+	}
+}
+ return say
+}
+var greeting = helloGoodbye().hello;
 
-
-
-
-
-
-
+var myHello = greeting("Scott")
+var myGoodbye = greeting("Scott")
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -142,12 +149,15 @@ number()
 function secretPassword() {
   var password = 'xh38sk';
   return {
-  	//Code here
+  	guessPassword: function(guess){
+			if(guess === password){
+				return true
+			}else return false
+		}
     }
   }
+  var passwordGame = secretPassword();
 
-
-var passwordGame = secretPassword();
 passwordGame.guessPassword('heyisthisit?'); // should return false
 passwordGame.guessPassword('xh38sk'); // should return true
 
